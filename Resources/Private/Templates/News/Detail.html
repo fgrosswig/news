@@ -89,16 +89,22 @@
 			</f:if>
 
 			<f:if condition="{settings.detail.showSocialShareButtons}">
-				<div class="facebook">
+				<div class="social">
+                                        <f:if condition="{settings.analytics.social.facebookLike}">
 					<div class="like">
-						<n:social.facebook.like></n:social.facebook.like>
+						<n:social.facebook.like layout="{settings.facebookLayout}"></n:social.facebook.like>
 					</div>
+                                        </f:if>
+                                        <f:if condition="{settings.analytics.social.facebookShare}">
 					<div class="share">
-						<n:social.facebook.share />
+						<n:social.facebook.share><f:translate key="LLL:EXT:demotemplate/Resources/Private/Language/locallang.xml:news.share" /></n:social.facebook.share>
 					</div>
+                                        </f:if>
+                                        <f:if condition="{settings.analytics.social.Twitter}">
 					<div class="twitter">
 						<n:social.twitter>Twitter</n:social.twitter>
-					</div>
+					</div>  
+                                        </f:if>
 				</div>
 			</f:if>
 
