@@ -87,8 +87,10 @@ class Tx_News_ViewHelpers_Social_Facebook_LikeViewHelper extends \TYPO3\CMS\Flui
 				$tsSettings = $this->pluginSettingsService->getSettings();
 
 				$locale = (!empty($tsSettings['facebookLocale'])) ? $tsSettings['facebookLocale'] : 'en_US';
-
-				$code = '<script src="https://connect.facebook.net/' . $locale . '/all.js#xfbml=1"></script>';
+				# plugin.tx_news.settings.facebookAppId = YOURAPPID
+				$fbAppId = (!empty($tsSettings['facebookAppId'])) ? $tsSettings['facebookAppId'] : '';
+                                $code = '<script src="https://connect.facebook.net/' . $locale . '/all.js#xfbml=1&appId='. $fbAppId .'"></script>';
+				
 
 					// Social interaction Google Analytics
 				if ($this->pluginSettingsService->getByPath('analytics.social.facebookLike') == 1) {
